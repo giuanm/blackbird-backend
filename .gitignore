@@ -1,0 +1,14 @@
+# Arquivos de configuração do ambiente
+.env
+
+# Arquivos temporários
+*.tmp
+*.bak
+
+# Arquivos gerados por ferramentas de build
+*.pyc
+__pycache__
+
+# Diretórios gerados por testes
+test/__pycache__
+test/*.pyc

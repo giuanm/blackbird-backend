@@ -8,6 +8,10 @@ from typing import List
 
 from . import crud, models, schemas
 from .database import engine, get_db, Base
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 Base.metadata.create_all(bind=engine)
 
@@ -27,7 +31,7 @@ app.add_middleware(
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 # Configurações JWT (**ALTERE SECRET_KEY EM PRODUÇÃO!**)
-SECRET_KEY = "super_secret_key"  # Substitua por um segredo forte e aleatório
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
