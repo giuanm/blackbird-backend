@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-os.getenv("DATABASE_URL")
 # Configurações do banco de dados
 DB_HOST = os.getenv("DB_HOST")
 DB_USER = os.getenv("DB_USER")
