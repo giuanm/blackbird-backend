@@ -171,11 +171,6 @@ def delete_company(company_id: int, db: Session = Depends(get_db)):
     return {"message": "Status da empresa alterado"}
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
 @app.post("/login", response_model=schemas.Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = crud.get_user_by_email(db, email=form_data.username)
@@ -190,3 +185,8 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
         data={"sub": user.email}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
